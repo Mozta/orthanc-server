@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  orthanc:
+    image: osimis/orthanc:bookworm-full
+    ports:
+      - "8042:8042"   # web UI / API
+      - "4242:4242"   # DICOM
+    volumes:
+      - ./orthanc-db:/var/lib/orthanc/db
+      - ./Orthanc.json:/etc/orthanc/Orthanc.json  # configuración opcional
